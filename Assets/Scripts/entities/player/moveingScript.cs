@@ -7,6 +7,7 @@ public class moveingScript : MonoBehaviour
     private float horizontal;
     private float speed = 5f;
     private bool isfacingRight = true;
+    public Camera cam;
 
     public Transform groundCheck;
     public LayerMask groundLayer;
@@ -27,6 +28,8 @@ public class moveingScript : MonoBehaviour
         }
 
         flip();
+
+        cam.transform.position = new Vector3(transform.position.x + 2, cam.transform.position.y, transform.position.z - 10);
     }
 
     private void FixedUpdate()
