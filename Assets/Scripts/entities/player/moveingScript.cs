@@ -3,7 +3,7 @@ using UnityEngine;
 public class moveingScript : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float jumpForce = 15f;
+    private float jumpForce = 8f;
     private float horizontal;
     private float speed = 5f;
     private bool isfacingRight = true;
@@ -29,7 +29,10 @@ public class moveingScript : MonoBehaviour
 
         flip();
 
-        cam.transform.position = new Vector3(transform.position.x + 2, cam.transform.position.y, transform.position.z - 10);
+        if(transform.position.x > cam.transform.position.x)
+        {
+            cam.transform.position = new Vector3(transform.position.x, cam.transform.position.y, transform.position.z - 10);
+        }
     }
 
     private void FixedUpdate()
