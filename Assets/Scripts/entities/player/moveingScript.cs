@@ -3,11 +3,12 @@ using UnityEngine;
 public class moveingScript : MonoBehaviour
 {
     public Rigidbody2D rb;
-    private float jumpForce = 8f;
+    private float jumpForce = 12f;
     private float horizontal;
     private float speed = 5f;
     private bool isfacingRight = true;
     public Camera cam;
+    public bool isMovingAnable = true;
 
     public Transform groundCheck;
     public LayerMask groundLayer;
@@ -15,6 +16,7 @@ public class moveingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isMovingAnable) return;
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (isGrounded() && Input.GetButtonDown("Jump"))
@@ -24,7 +26,7 @@ public class moveingScript : MonoBehaviour
 
         if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.2f);
         }
 
         flip();

@@ -7,6 +7,7 @@ public class gameLogicScript : MonoBehaviour
     [SerializeField] private GameObject coin;
     private HashSet<GameObject> spawnedObjects = new HashSet<GameObject>();
     [SerializeField] private Text text;
+
     private int coinCounter;
 
     public void specialBlockReward(GameObject @object)
